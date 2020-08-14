@@ -1,0 +1,224 @@
+.button {
+    cursor: pointer;
+    font-family: $pixel-font;
+    padding: 16px 24px;
+    line-height: 1.4;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+}
+
+.pixel-border--foreground {
+    position: relative;
+    z-index: 5;
+    &::after {
+        background: var(--inner);
+        position: absolute;
+        content: '';
+        top: 14px;
+        right: -4px;
+        bottom: 14px;
+        left: -4px;
+        z-index: -1;
+        box-shadow:
+      /* Inner Background Color -- Same as inner */
+        0   -6px 0  -2px var(--inner),
+        0    6px 0  -2px var(--inner),
+        0  -12px 0  -4px var(--inner),
+        0   12px 0  -4px var(--inner),
+        0  -18px 0  -8px var(--inner),
+        0   18px 0  -8px var(--inner),
+        0  -24px 0 -12px var(--inner),
+        0   24px 0 -12px var(--inner),
+      
+      /* Inner Border */
+       -2px  0   0   0   var(--border),
+        2px  0   0   0   var(--border),
+        0   -4px 0   0   var(--border),
+        0    4px 0   0   var(--border),
+        0  -10px 0  -2px var(--border),
+        0   10px 0  -2px var(--border),
+        0  -14px 0  -4px var(--border),
+        0   14px 0  -4px var(--border),
+        0  -20px 0  -8px var(--border),
+        0   20px 0  -8px var(--border),
+        0  -26px 0 -12px var(--border),
+        0   26px 0 -12px var(--border),
+      
+      /* Middle Border -- Accent */
+       -4px  0   0   0   var(--accent),
+        4px  0   0   0   var(--accent),
+        0   -2px 0   2px var(--accent),
+        0    2px 0   2px var(--accent),
+        0   -8px 0   0px var(--accent),
+        0    8px 0   0px var(--accent),
+        0  -12px 0  -2px var(--accent),
+        0   12px 0  -2px var(--accent),
+        0  -16px 0  -4px var(--accent),
+        0   16px 0  -4px var(--accent),
+        0  -22px 0  -8px var(--accent),
+        0   22px 0  -8px var(--accent),
+        0  -28px 0 -12px var(--accent),
+        0   28px 0 -12px var(--accent),
+      
+      /* Outer Border */
+       -6px  0   0   0   var(--border),
+        6px  0   0   0   var(--border),
+        0    0   0   4px var(--border),
+        0   -6px 0   2px var(--border),
+        0    6px 0   2px var(--border),
+        0  -10px 0   0   var(--border),
+        0   10px 0   0   var(--border),
+        0  -14px 0  -2px var(--border),
+        0   14px 0  -2px var(--border),
+        0  -18px 0  -4px var(--border),
+        0   18px 0  -4px var(--border),
+        0  -24px 0  -8px var(--border),
+        0   24px 0  -8px var(--border),
+        0  -30px 0 -12px var(--border),
+        0   30px 0 -12px var(--border);
+    }
+
+    &:focus::after,
+    &:hover::after {
+        background: var(--inner-hover);
+        position: absolute;
+        content: '';
+        top: 14px;
+        right: -4px;
+        bottom: 14px;
+        left: -4px;
+        z-index: -1;
+        box-shadow:
+      /* Inner Background Color -- Same as inner */
+        0   -6px 0  -2px var(--inner-hover),
+        0    6px 0  -2px var(--inner-hover),
+        0  -12px 0  -4px var(--inner-hover),
+        0   12px 0  -4px var(--inner-hover),
+        0  -18px 0  -8px var(--inner-hover),
+        0   18px 0  -8px var(--inner-hover),
+        0  -24px 0 -12px var(--inner-hover),
+        0   24px 0 -12px var(--inner-hover),
+      
+      /* Inner Border */
+       -2px  0   0   0   var(--border-hover),
+        2px  0   0   0   var(--border-hover),
+        0   -4px 0   0   var(--border-hover),
+        0    4px 0   0   var(--border-hover),
+        0  -10px 0  -2px var(--border-hover),
+        0   10px 0  -2px var(--border-hover),
+        0  -14px 0  -4px var(--border-hover),
+        0   14px 0  -4px var(--border-hover),
+        0  -20px 0  -8px var(--border-hover),
+        0   20px 0  -8px var(--border-hover),
+        0  -26px 0 -12px var(--border-hover),
+        0   26px 0 -12px var(--border-hover),
+      
+      /* Middle Border -- Accent */
+       -4px  0   0   0   var(--accent-hover),
+        4px  0   0   0   var(--accent-hover),
+        0   -2px 0   2px var(--accent-hover),
+        0    2px 0   2px var(--accent-hover),
+        0   -8px 0   0px var(--accent-hover),
+        0    8px 0   0px var(--accent-hover),
+        0  -12px 0  -2px var(--accent-hover),
+        0   12px 0  -2px var(--accent-hover),
+        0  -16px 0  -4px var(--accent-hover),
+        0   16px 0  -4px var(--accent-hover),
+        0  -22px 0  -8px var(--accent-hover),
+        0   22px 0  -8px var(--accent-hover),
+        0  -28px 0 -12px var(--accent-hover),
+        0   28px 0 -12px var(--accent-hover),
+      
+      /* Outer Border */
+       -6px  0   0   0   var(--border-hover),
+        6px  0   0   0   var(--border-hover),
+        0    0   0   4px var(--border-hover),
+        0   -6px 0   2px var(--border-hover),
+        0    6px 0   2px var(--border-hover),
+        0  -10px 0   0   var(--border-hover),
+        0   10px 0   0   var(--border-hover),
+        0  -14px 0  -2px var(--border-hover),
+        0   14px 0  -2px var(--border-hover),
+        0  -18px 0  -4px var(--border-hover),
+        0   18px 0  -4px var(--border-hover),
+        0  -24px 0  -8px var(--border-hover),
+        0   24px 0  -8px var(--border-hover),
+        0  -30px 0 -12px var(--border-hover),
+        0   30px 0 -12px var(--border-hover);
+    }
+}
+
+.pixel-border--background {
+  position: relative;
+  &::after {
+      background: var(--inner-background);
+      position: absolute;
+      content: '';
+      top: 14px;
+      right: -4px;
+      bottom: 14px;
+      left: -4px;
+      z-index: -1;
+      box-shadow:
+    /* Inner Background Color -- Same as inner */
+      0   -6px 0  -2px var(--inner-background),
+      0    6px 0  -2px var(--inner-background),
+      0  -12px 0  -4px var(--inner-background),
+      0   12px 0  -4px var(--inner-background),
+      0  -18px 0  -8px var(--inner-background),
+      0   18px 0  -8px var(--inner-background),
+      0  -24px 0 -12px var(--inner-background),
+      0   24px 0 -12px var(--inner-background),
+    
+    /* Inner Border */
+     -2px  0   0   0   var(--border),
+      2px  0   0   0   var(--border),
+      0   -4px 0   0   var(--border),
+      0    4px 0   0   var(--border),
+      0  -10px 0  -2px var(--border),
+      0   10px 0  -2px var(--border),
+      0  -14px 0  -4px var(--border),
+      0   14px 0  -4px var(--border),
+      0  -20px 0  -8px var(--border),
+      0   20px 0  -8px var(--border),
+      0  -26px 0 -12px var(--border),
+      0   26px 0 -12px var(--border),
+    
+    /* Middle Border -- Accent */
+     -4px  0   0   0   var(--accent),
+      4px  0   0   0   var(--accent),
+      0   -2px 0   2px var(--accent),
+      0    2px 0   2px var(--accent),
+      0   -8px 0   0px var(--accent),
+      0    8px 0   0px var(--accent),
+      0  -12px 0  -2px var(--accent),
+      0   12px 0  -2px var(--accent),
+      0  -16px 0  -4px var(--accent),
+      0   16px 0  -4px var(--accent),
+      0  -22px 0  -8px var(--accent),
+      0   22px 0  -8px var(--accent),
+      0  -28px 0 -12px var(--accent),
+      0   28px 0 -12px var(--accent),
+    
+    /* Outer Border */
+     -6px  0   0   0   var(--border),
+      6px  0   0   0   var(--border),
+      0    0   0   4px var(--border),
+      0   -6px 0   2px var(--border),
+      0    6px 0   2px var(--border),
+      0  -10px 0   0   var(--border),
+      0   10px 0   0   var(--border),
+      0  -14px 0  -2px var(--border),
+      0   14px 0  -2px var(--border),
+      0  -18px 0  -4px var(--border),
+      0   18px 0  -4px var(--border),
+      0  -24px 0  -8px var(--border),
+      0   24px 0  -8px var(--border),
+      0  -30px 0 -12px var(--border),
+      0   30px 0 -12px var(--border);
+  }
+}

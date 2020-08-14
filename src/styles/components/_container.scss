@@ -1,0 +1,15 @@
+body, html {
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient($oc-indigo-0 calc(100% - 400px), $oc-indigo-5);
+    color: $oc-gray-9;
+    display: grid;
+}
+
+.container {
+    justify-self: center;
+    max-width: 1440px;
+    width: 100%;
+}

@@ -1,0 +1,38 @@
+.poke-ui {
+    // border: 2px solid var(--border);
+    display: grid;
+    grid-template-areas: 
+        ' controls  controls'
+        ' component stats';
+    grid-template-rows: auto auto;
+    grid-template-columns: auto 320px;
+    margin-bottom: 124px;
+
+    &__controls {
+        border-bottom: 2px solid var(--border);
+        grid-area: controls;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 16px;
+
+        & > li {
+            margin-right: 24px; 
+        }
+    }
+
+    &__component {
+        overflow: hidden;
+        grid-area: component;
+        margin-bottom: -25%; // because the disc is transformed, its container is much taller than it appears optically
+        padding: 80px;
+    }
+
+    &__stats {
+        background-color: $oc-grape-3;
+        border-radius: 0 0 20px 0;
+        grid-area: stats;
+        border-left: 2px solid var(--border);
+        padding: 16px;
+    }
+}

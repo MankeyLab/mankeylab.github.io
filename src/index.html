@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>webpack starterkit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>webpack starterkit</title>
 </head>
+
 <body>
-  <h1>webpack starter</h1>
-  <p>✨ A lightweight foundation for your next webpack based frontend project.</p>
+    <main class="container">
+        <header class="container__header">
+            <h1>A (nearly) pointless demo</h1>
+        </header>
+        <section class="deck">
+            <p>I picked an entirely arbitrary concept to demonstrate my CSS, React, and JavaScript skillset. <em>Why pokemon&mdash;and why are they spinning?</em></p>
+            <h2>Well, a couple of reasons</h2>
+            <ul>
+                <li>There's a free Pokemon api, which is cool. It was useful to demonstrate REST API integration.</li>
+                <li>
+                    I had been thinking about how to recreate some retro/pixel interface elements in CSS. Specifically utilizing step transition, dither effects, and pixelation.
+                    <ul>
+                        <li>
+                            Note the segmented fill and dither effects of the stat bars. I spent entirely too much time calculating the transition delays by comparing the ranges of the changed indicies, but I'm happy with the result. 
+                        </li>
+                        <li>
+                            The aliased edges of the buttons is done using CSS's clip-path property.
+                        </li>
+                    </ul>
+                </li>
+                <li><em>But why are they spinning?</em> I had been noodling on this idea for a while and wanted to see if it would come together. Once I had the inital proof of concept down I wanted to push it a little further, to see if I could smoothly add items into it without disrupting the animation. Click "Add Item" to make an asyncronous request for a random Pokemon. One nuance that might not be apparent at first is how each item has to counter-rotate in sync with the disc in order to always be facing towards the user. All of the rotation animations are done using a function of the item's index and the number of items in the carousel.</li>
+            </ul>
+            <p>All in all, its a pretty dumb little component that demonstrates a range of front-end skills.</p>
+        </section>
+
+        <section class="poke-ui pixel-border pixel-border--background">
+            <ul class="poke-ui__controls" data-component="poke-ui__controls">
+                <li>
+                    <button class="button pixel-border--foreground" type="button" data-action="add-item">Add Item</button>
+                </li>
+                <li>
+                    <button class="button pixel-border--foreground" type="button" data-action="remove-item">Remove Item</button>
+                </li>
+                <li>
+                    <button class="button pixel-border--foreground" type="button" data-action="toggle-wireframes">Toggle Wireframes</button>
+                </li>
+            </ul>
+            <div class="poke-controller poke-ui__component" data-component="poke-controller">
+                <div class="poke-controller__plane">
+                    <ul class="poke-controller__disc" data-element="disc">
+                    </ul>
+                </div>
+            </div>
+            <div class="poke-stats poke-ui__stats" data-component="poke-stats">
+                <header class="poke-stats__header">
+                    <h3 class="poke-stats__heading">Pikachu</h3>
+                </header>
+                <ul class="poke-stats__list">
+                    <li class="poke-stats__item" data-element="hp">
+                        <label class="poke-stats__label">HP</label>
+                        <ul class="stats-meter pixel-border--foreground"></ul>
+                    </li>
+                    <li class="poke-stats__item" data-element="attack">
+                        <label class="poke-stats__label">Attack</label>
+                        <ul class="stats-meter pixel-border--foreground"></ul>
+                    </li>
+                    <li class="poke-stats__item" data-element="defense">
+                        <label class="poke-stats__label">Defense</label>
+                        <ul class="stats-meter pixel-border--foreground"></ul>
+                    </li>
+                    <li class="poke-stats__item" data-element="special-attack">
+                        <label class="poke-stats__label">Special Attack</label>
+                        <ul class="stats-meter pixel-border--foreground"></ul>
+                    </li>
+                    <li class="poke-stats__item" data-element="special-defense">
+                        <label class="poke-stats__label">Special Defense</label>
+                        <ul class="stats-meter pixel-border--foreground"></ul>
+                    </li>
+                    <li class="poke-stats__item" data-element="speed">
+                        <label class="poke-stats__label">Speed</label>
+                        <ul class="stats-meter pixel-border--foreground"></ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <footer class="footer">View on Github</footer>
+    </main>
 </body>
+
 </html>

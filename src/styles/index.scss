@@ -1,6 +1,3 @@
-$body-color: slateblue;
+@import './base';
 
-body {
-  color: $body-color;
-  font-family: sans-serif;
-}
+@import './components';
