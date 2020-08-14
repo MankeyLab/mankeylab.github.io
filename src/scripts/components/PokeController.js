@@ -1,6 +1,7 @@
 import PokeGetter from './PokeGetter'
 import PokeItem from './PokeItem'
 import PokeTimelineManager from './PokeTimelineManager'
+import PokeStats from './PokeStats'
 import times from 'lodash/times'
 
 export default class PokeController {
@@ -27,6 +28,7 @@ export default class PokeController {
             toggleWireframes: this.controlContainer.querySelector('[data-action="toggle-wireframes"]'),
             removeItem: this.controlContainer.querySelector('[data-action="remove-item"]')
         }
+        this.stats = new PokeStats(document.querySelector('[data-component="poke-stats"]'))
     }
 
     start = () => {

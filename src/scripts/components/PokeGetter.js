@@ -4,7 +4,6 @@ export default class PokeGetter {
     _API = 'https://pokeapi.co/api/v2/pokemon'
 
     async getPokemon() {
-        console.log('asdf')
         try {
             const response = await Axios.get( `${this._API}/${this.getRandomInt(0, 100)}` )
             return this.formatResponse( response.data )
