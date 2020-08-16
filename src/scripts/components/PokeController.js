@@ -10,7 +10,8 @@ export default class PokeController {
     timelineManager = new PokeTimelineManager({
         disc: '.poke-controller__disc',
         item: '.poke-controller__item',
-        itemStand: '.poke-controller__item-stand'
+        itemStand: '.poke-controller__item-stand',
+        images: '.poke-controller__image'
     })
 
     state = {

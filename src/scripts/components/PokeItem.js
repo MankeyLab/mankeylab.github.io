@@ -11,12 +11,12 @@ export default class PokeItem {
             <div class="poke-controller__item-plane">
                 <button class="poke-controller__item-stand" data-element="poke-button">
                     <img 
-                        class="poke-controller__art"
+                        class="poke-controller__art poke-controller__image"
                         src="${this.art}"
                         alt="${this.name} offical artwork"  
                     />
                     <img 
-                        class="poke-controller__sprite"
+                        class="poke-controller__sprite poke-controller__image"
                         src="${this.sprite}"
                         alt="${this.name} offical artwork"  
                     />

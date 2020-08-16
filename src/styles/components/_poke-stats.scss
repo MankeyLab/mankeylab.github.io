@@ -59,6 +59,7 @@
         }
 
         &::after {
+            font-size: 12px;
             content: attr(data-abbr);
             display: block;
 

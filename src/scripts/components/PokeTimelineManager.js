@@ -1,14 +1,17 @@
 import anime from 'animejs/lib/anime.es.js'
+import { clamp, mapRange } from '../helpers/mathHelpers'
 
 export default class PokeTimelineManager {
     config = {
         discRotationDuration: 30000
     }
 
-    constructor({disc, item, itemStand}) {
+    constructor({disc, item, itemStand, images}) {
         this.disc = disc
         this.item = item
         this.itemStand = itemStand
+        this.images = images
+        console.log(itemStand)
     }
 
     createDiscTimeline = () => {
@@ -30,28 +33,41 @@ export default class PokeTimelineManager {
             getRotationOffset, 
             config, 
             item, 
-            itemStand 
+            itemStand,
+            images
         } = this
         anime.remove(item)
         anime.remove(itemStand)
 
         anime.set( item, {
+            // center hack
             translateX: '-50%'
         })
 
         anime({
+            // sets the rotation out from center of the item
             targets: item,
             easing: 'easeOutExpo',
-            scale: (el, i, l) => {
-                // scales up the newly added item
-                return (i + 1 === l) && method === 'add'
-                    ? [ 0, 1 ]
-                    : 1
-            },
             rotate: (el, i, l) => {
                 return (i + 1 === l) && method === 'add'
                     ? [ getRotationOffset(i, l) - 10, getRotationOffset(i, l) ]
                     : getRotationOffset(i, l)
+            },
+            duration: 2000
+        })
+
+        anime({
+            // reduces the size of items based on the number of items,
+            // also adds a scale in effect to the image
+            targets: images,
+            easing: 'easeOutExpo',
+            scale: (el, i, l) => {
+                // scale reduce based on item
+                const scale = clamp(10 / l, .6, 1.2)
+                // scales up the newly added item
+                return (i + 1 === l) && method === 'add'
+                    ? [ 0, scale ]
+                    : scale
             },
             duration: 2000
         })
