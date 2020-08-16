@@ -5,8 +5,7 @@
     &__item {
         align-items: center;
         display: grid;
-        text-align: left;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, 100%);
         grid-template-rows: 24px;
         grid-gap: 0 12px;
 
@@ -60,8 +59,8 @@
         }
 
         &::after {
-            font-size: 12px;
             content: attr(data-abbr);
+            display: block;
 
             @include small {
                 font-size: 14px;
