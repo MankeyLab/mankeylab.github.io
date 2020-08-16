@@ -1,28 +1,16 @@
 {
-  "name": "webpack-starter",
-  "version": "1.0.0",
-  "description": "A light foundation for your next frontend project based on webpack.",
+  "name": "Poke Spinner",
+  "version": "0.0.1",
+  "description": "A front-end demo",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js --colors",
     "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wbkd/webpack-starter.git"
+    "url": "git+https://github.com/MankeyLab/mankeylab.github.io"
   },
-  "keywords": [
-    "webpack",
-    "startkit",
-    "frontend",
-    "es6",
-    "javascript",
-    "webdev"
-  ],
-  "author": "webkid.io",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wbkd/webpack-starter/issues"
-  },
+  "author": "Steven Dana",
   "devDependencies": {
     "@babel/core": "^7.11.0",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
