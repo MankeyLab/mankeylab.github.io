@@ -25,6 +25,7 @@ I picked an entirely arbitrary concept to demonstrate my CSS, React, and JavaScr
     - I wanted an exercise to practice CSS 3D transforms.
     - Once I had the inital proof of concept down I wanted to push it a little further, to see if I could smoothly add items into it without disrupting the animation. 
     - One nuance that might not be apparent at first is how each item has to counter-rotate in sync with the disc in order to always be facing towards the user. All of the rotation animations are done using a function of the item's index and the number of items in the carousel.
+
 ### Instructions
 - Click on a pokémon to load it's stats.
 - Toggling wireframes to see the underlying CSS transforms.
