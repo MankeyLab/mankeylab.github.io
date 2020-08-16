@@ -1,34 +1,41 @@
-import times from 'lodash/times';
+import times from 'lodash/times'
+import { clamp, mapRange } from '../helpers/mathHelpers'
 
 export default class PokeStats {
-    statsSelectors = [
-        'hp',
-        'attack',
-        'defense',
-        'special-attack',
-        'special-defense',
-        'speed'
-    ]
-
     meters = []
+    currentStats = [
+        {name: 'hp', value: undefined},
+        {name: 'attack', value: undefined},
+        {name: 'defense', value: undefined},
+        {name: 'special-attack', value: undefined},
+        {name: 'special-defense', value: undefined},
+        {name: 'speed', value: undefined}
+    ]
+    pokeName = undefined
 
     config = {
-        numSegments: 20
+        numSegments: 20,
+        minStat: 0,
+        maxStat: 180,
+        filledSegmentClass: 'stats-meter__segment--filled',
     }
 
-    constructor(component, stats) {
-        const { statsSelectors } = this
-        this.stats = stats
+    constructor(component) {
+        const { currentStats } = this
         this.component = component
-        this.meters = statsSelectors.map((statName) => {
+        this.nameContainer = component.querySelector('[data-element="poke-name"]')
+        this.meters = currentStats.map(({ name }) => {
+            // creates reference for each of the DOM nodes per stat
             return this.component
-                .querySelector(`[data-element="${statName}"]`)
+                .querySelector(`[data-element="${name}"]`)
                 .querySelector('.stats-meter')
         })
         this.prepareDOM()
     }
 
     prepareDOM = () => {
+        // this function injects a bunch of empty list items that
+        // correspond to the segments
         const { numSegments } = this.config
         const { meters } = this
         this.meters.forEach((meter) => {
@@ -41,4 +48,40 @@ export default class PokeStats {
         })
     }
 
+    renderStats = (stats, name) => {
+        const { renderMeterSegments } = this
+        this.currentStats = stats
+        this.meters.forEach((meter, i) => {
+            renderMeterSegments(
+                meter,
+                this.currentStats[i].value, 
+            )
+        })
+        this.nameContainer.innerHTML = name
+    }
+
+    renderMeterSegments = (meter, value) => {
+        const { getMappedValue } = this
+        const { filledSegmentClass } = this.config
+
+        meter.children.forEach((segment, i) => {
+            segment.classList.toggle(
+                filledSegmentClass, 
+                i + 1 <= getMappedValue( value )
+            )
+        })
+    }
+
+    getMappedValue = value => {
+        const { minStat, maxStat, numSegments } = this.config
+        return Math.round(
+            mapRange(
+                clamp(value, minStat, maxStat),
+                minStat,
+                maxStat,
+                0,
+                numSegments
+            )
+        )
+    }
 }

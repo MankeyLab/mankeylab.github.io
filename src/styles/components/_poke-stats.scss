@@ -1,20 +1,83 @@
 .poke-stats {
+    position: relative;
+    z-index: 20;
+
+    &__item {
+        align-items: center;
+        display: grid;
+        text-align: left;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 24px;
+        grid-gap: 0 12px;
+
+        @include xsmall {
+            grid-template-columns: 100px auto;
+        }
+
+        @include small {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        @include medium {
+            grid-gap: 0;
+        }
+
+        @include full {
+            grid-gap: 4px;
+        }
+    }
 
     &__list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
         padding-left: 0;
         margin-top: 0;
         list-style: none;
-    }
+        grid-gap: 4px 32px;
 
-    &__item {
-        margin-bottom: 16px;
+        @include small {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include medium {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include full {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 
     &__heading {
         font-family: $pixel-font;
+        text-transform: capitalize;
     }
 
     &__label {
-        font-family: $pixel-font;
+        font: {
+            size: 0;
+            family: $pixel-font;
+        }
+
+        &::after {
+            font-size: 12px;
+            content: attr(data-abbr);
+
+            @include small {
+                font-size: 14px;
+            }
+        }
+
+        @include medium {
+            font-size: 14px;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        @include full {
+            font-size: 16px;
+        }
     }
 }

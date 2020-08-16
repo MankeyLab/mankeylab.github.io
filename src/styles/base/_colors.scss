@@ -397,13 +397,3 @@ $oc-color-list: (
   $oc-yellow-list:      "yellow",
   $oc-orange-list:      "orange"
 );
-
-:root {
-  --inner: #{$oc-orange-2};
-  --border: #{$oc-violet-9};
-  --accent: #{$oc-violet-2};
-  --inner-hover: #{$oc-cyan-0};
-  --border-hover: #{$oc-cyan-9};
-  --accent-hover: #{$oc-cyan-4};
-  --inner-background: #{$oc-grape-0};
-}

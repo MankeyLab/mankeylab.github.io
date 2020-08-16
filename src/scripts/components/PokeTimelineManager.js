@@ -25,7 +25,7 @@ export default class PokeTimelineManager {
         })
     }
 
-    createItemTimeline = () => {
+    createItemTimeline = (method) => {
         const { 
             getRotationOffset, 
             config, 
@@ -42,8 +42,16 @@ export default class PokeTimelineManager {
         anime({
             targets: item,
             easing: 'easeOutExpo',
-            rotate: function(el, i, l) {
-                return getRotationOffset(i, l)
+            scale: (el, i, l) => {
+                // scales up the newly added item
+                return (i + 1 === l) && method === 'add'
+                    ? [ 0, 1 ]
+                    : 1
+            },
+            rotate: (el, i, l) => {
+                return (i + 1 === l) && method === 'add'
+                    ? [ getRotationOffset(i, l) - 10, getRotationOffset(i, l) ]
+                    : getRotationOffset(i, l)
             },
             duration: 2000
         })
@@ -55,7 +63,7 @@ export default class PokeTimelineManager {
             loop: true,
             autoplay: false
         }).add({
-            rotateZ: function( el, i, l ) {
+            rotateZ: ( el, i, l ) => {
                 const from = 180 - getRotationOffset(i, l)
                 const to =  -180 - getRotationOffset(i, l)
 

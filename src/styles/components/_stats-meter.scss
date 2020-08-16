@@ -1,72 +1,57 @@
 .stats-meter {
+    @include pixelBorder($oc-violet-9, $oc-violet-9, $oc-violet-2);
     margin-top: 0px;
     padding-left: 0px;
-    height: 40px;
-    border: 1px solid blue;
+    height: 24px;
     list-style: none;
     align-items: stretch;
     justify-content: stretch;
     display: flex;
-    padding: 8px 0px;
+    padding: 6px 4px;
 
-    &.pixel-border--foreground::after {
-        left: 0;
-        right: 0;
+    @include medium {
+        padding: 8px 4px;
+        height: 28px;
     }
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 8px;
+    @include full {
+        height: 40px;
+        padding: 8px 4px;
+    }
+
+    &::after {
         left: 0;
-        bottom: 8px;
         right: 0;
-        background: linear-gradient(to right, $oc-red-5, $oc-yellow-5, $oc-green-5 );
-        border-radius: 999px;
-        mix-blend-mode: multiply;
-        z-index: 20;
     }
 
     &__segment {
         flex: 1 0 auto;
         background: {
-            color: black;
             image: url('../assets/images/dither.jpg');
             size: 800px 1420px;
             position: 100% 100%;
         };
-        animation: {
-            // property: background-position;
+        transition: {
+            property: background-position;
             name: test;
             duration: 1s;
             timing-function: steps(6);
-            iteration-count: infinite;
         }
         position: relative;
         z-index: 10;
-        // mix-blend-mode: screen;
-    
-        @for $i from 1 through 20 {
-        &:nth-child(#{$i}) {
-            animation-delay: $i * .05s;
-        }
-    }
+
 
         &--filled {
             background-position: 100% 0%;
         }
-    
-        &--unfilled {
-            background-position: 100% 100%;
-        }
-    
-        &:first-child {
-            border-radius: 999px 0px 0px 999px;
-        }
-    
-        &:last-child {
-            border-radius: 0px 999px 999px 0px;
-        }
+
+        // &:first-child {
+        //     border-radius: 8px 0 0 8px;
+        // }
+
+        // &:last-child {
+        //     border-radius: 0 8px 8px 0;
+        // }
     }
 }
 

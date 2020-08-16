@@ -1,38 +1,78 @@
 .poke-ui {
-    // border: 2px solid var(--border);
+    @include pixelBorder($oc-grape-0, $oc-violet-9, $oc-violet-2);
     display: grid;
     grid-template-areas: 
-        ' controls  controls'
-        ' component stats';
-    grid-template-rows: auto auto;
-    grid-template-columns: auto 320px;
+        'controls'
+        'component'
+        'stats';
+    grid-template-rows: auto;
     margin-bottom: 124px;
 
+    @include full {
+        grid-template-areas: 
+            'controls  controls'
+            'component stats';
+        grid-template-columns: auto 320px;
+    }
+
     &__controls {
-        border-bottom: 2px solid var(--border);
+        border-bottom: 2px solid $oc-violet-9;
         grid-area: controls;
-        display: flex;
+        display: grid;
         list-style: none;
         margin: 0;
         padding: 16px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 4px;
 
-        & > li {
-            margin-right: 24px; 
+        @include small {
+            grid-gap: 4px 32px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include medium {
+            grid-gap: 16px 32px;
+        }
+
+        @include full {
+            grid-template-columns: repeat(4, auto);
+        }
+
+        .button {
+            width: 100%;
         }
     }
 
     &__component {
         overflow: hidden;
         grid-area: component;
-        margin-bottom: -25%; // because the disc is transformed, its container is much taller than it appears optically
-        padding: 80px;
+        margin-bottom: -30%; // because the disc is transformed, its container is much taller than it appears optically
+
+        @include medium {
+            padding: 0 15%;
+            margin-bottom: -20%; // because the disc is transformed, its container is much taller than it appears optically
+        }
+
+        @include full {
+            padding: 80px;
+            margin-bottom: -25%; // because the disc is transformed, its container is much taller than it appears optically
+        }
     }
 
     &__stats {
-        background-color: $oc-grape-3;
-        border-radius: 0 0 20px 0;
+        background-color: $oc-grape-2;
+        border-radius: 0 0 16px 16px;
         grid-area: stats;
-        border-left: 2px solid var(--border);
+        border-top: 2px solid $oc-violet-9;
+        margin-bottom: 6px;
         padding: 16px;
+
+        @include full {
+            border:{
+                top: none;
+                left: 2px solid $oc-violet-9;
+                bottom-left-radius: 0;
+            }
+        }
     }
 }

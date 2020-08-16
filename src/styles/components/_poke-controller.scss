@@ -15,19 +15,21 @@
         align-items: center;
         position: relative;
         transform: rotateX(45deg);
-        width: 100%;
         height: 0px;
         padding-bottom: 100%; // responsive square hack
 
         .poke-controller--show-wireframes & {
             border: 1px solid $oc-indigo-9;
         }
+
+        @include medium {
+        }
     }
 
     &__item {
         justify-self: center;
         display: block;
-        width: 33%;
+        width: 45%;
         height: 50%;
         transform-origin: 50% 100%;
         max-width: 400px;
@@ -39,6 +41,14 @@
 
         .poke-controller--show-wireframes & {
             border: 1px solid $oc-orange-7;
+        }
+
+        @include medium {
+            width: 40%;
+        }
+
+        @include full {
+            width: 33%;
         }
     }
 
@@ -86,8 +96,13 @@
         }
     }
 
-    &__sprite {
-        display: block;
+    &__sprite,
+    &__art {
+        animation: {
+            name: fadeIn;
+            duration: 1s;
+            fill-mode: forwards;
+        }
         cursor: pointer;
         width: 100%;
         height: auto;
@@ -99,5 +114,30 @@
         .poke-controller__item--active & {
             filter: brightness(100%);
         }
+    }
+
+    &__art {
+        display: block;
+
+        .poke-controller--show-sprites & {
+            display: none;
+        }
+    }
+
+    &__sprite {
+        display: none;
+
+        .poke-controller--show-sprites & {
+            display: block;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
