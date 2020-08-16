@@ -1,4 +1,4 @@
-# Front End Demo
+# [Front-end Demo](https://mankeylab.github.io/build)
 
 ### Installation
 ```
