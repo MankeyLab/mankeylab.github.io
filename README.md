@@ -16,7 +16,7 @@ npm run build
 ```
 
 ## About
-I picked an entirely arbitrary concept to demonstrate my CSS, React, and JavaScript skillset. _Why pokémon-and why are they spinning?_
+I picked an entirely arbitrary concept to demonstrate a CSS and JavaScript skillset. _Why pokémon-and why are they spinning?_
 
 ### Well, a couple of reasons
 - There's a [free Pokémon api](https://pokeapi.co/), which is cool. It was useful to demonstrate REST API integration.
